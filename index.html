@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notification System</title>
+</head>
+<body>
+
+<h1>Notification System</h1>
+
+<form action="/add" method="POST">
+    <input type="text" name="message" required>
+
+    <button type="submit">
+        Add Notification
+    </button>
+</form>
+
+<hr>
+
+{% for notification in notifications %}
+
+    <p>
+        {{ notification[1] }}
+        ({{ notification[2] }})
+
+        <a href="/read/{{ notification[0] }}">
+            Mark Read
+        </a>
+
+        <a href="/delete/{{ notification[0] }}">
+            Delete
+        </a>
+    </p>
+
+{% endfor %}
+
+</body>
+</html>
